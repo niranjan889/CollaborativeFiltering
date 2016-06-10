@@ -8,7 +8,7 @@ import json
 import numpy as np
 import copy
 
-#
+#Function to create ratings json file either binary or other
 def pre_proc_mov(rate=5,split_perc=30):
     dict_mov=dict()
     set_mov=set()
@@ -47,6 +47,7 @@ def pre_proc_mov(rate=5,split_perc=30):
     with open(op_path+"/mov_lens100_rate"+str(rate)+".json", "w") as outfile:
         json.dump(dict_mov, outfile) 
 
+# Function to split the data in test and train using cross validation
 def split_data(rate=5,split_perc=30):
     folds=split_perc
     op_path=os.getcwd()
@@ -60,7 +61,6 @@ def split_data(rate=5,split_perc=30):
     for user in user_prj_data:
         lent=len(user_prj_data[user])
         count+=lent
-#     print 'Density {}'.format(count/float(len(set_mov)*len(user_prj_data)))
     length=count
     print 'Total ratings: {}'.format(length)
     
