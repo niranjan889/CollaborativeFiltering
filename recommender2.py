@@ -102,11 +102,9 @@ class recommender:
         ratings = self.data[id]
         print(len(ratings))
         ratings = list(ratings.items())
-        ratings = [(self.convertProductID2name(k), v)
-                   for (k, v) in ratings]
+        ratings = [(self.convertProductID2name(k), v) for (k, v) in ratings]
         # finally sort and return
-        ratings.sort(key=lambda artistTuple: artistTuple[1],
-                     reverse = True)
+        ratings.sort(key=lambda artistTuple: artistTuple[1], reverse = True)
         ratings = ratings[:n]
         for rating in ratings:
             print("%s\t%i" % (rating[0], rating[1]))
@@ -147,12 +145,10 @@ class recommender:
         distances = []
         for instance in self.data:
             if instance != username:
-                distance = self.fn(self.data[username],
-                                   self.data[instance])
+                distance = self.fn(self.data[username], self.data[instance])
                 distances.append((instance, distance))
         # sort based on distance -- closest first
-        distances.sort(key=lambda artistTuple: artistTuple[1],
-                       reverse=True)
+        distances.sort(key=lambda artistTuple: artistTuple[1], reverse=True)
         return distances
 
     def recommend(self, user):
@@ -196,11 +192,9 @@ class recommender:
                         recommendations[artist] = (recommendations[artist]+ 1* weight)
         # now make list from dictionary
         recommendations = list(recommendations.items())
-        recommendations = [(self.convertProductID2name(k), v)
-                           for (k, v) in recommendations]
+        recommendations = [(self.convertProductID2name(k), v) for (k, v) in recommendations]
         # finally sort and return
-        recommendations.sort(key=lambda artistTuple: artistTuple[1],
-                             reverse = True)
+        recommendations.sort(key=lambda artistTuple: artistTuple[1], reverse = True)
         # Return the first n items
         return recommendations[:self.n]
     
