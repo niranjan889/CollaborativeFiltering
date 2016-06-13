@@ -2,7 +2,6 @@
 Created on 2016-06-10
 @author: Niranjan
 '''
-
 import os
 import json
 import numpy as np
@@ -52,7 +51,7 @@ def split_data(rate=5,split_perc=30):
     folds=split_perc
     op_path=os.getcwd()
     op_path+='/movdata'
-    
+
     #Load the data from json file
     with open(op_path+'/mov_lens100_rate'+str(rate)+'.json','r') as fp:
         user_prj_data = json.load(fp)
