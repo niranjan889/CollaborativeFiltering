@@ -4,8 +4,8 @@ Created on 2016-06-10
 '''
 import os
 import json
-import numpy as np
 import copy
+import numpy as np
 
 #Function to create ratings json file either binary or other
 def pre_proc_mov(rate=5,split_perc=30):
