@@ -31,7 +31,7 @@ def eval(x,file_path,k=50,sim_mesrs=['jaccard']):
                     found=0
                     scores=recc.recommend(user)
                     try:
-                        for tup in scores:
+                        for tup in scores:  #See if the project is present in test data
                             if tup[0] in testd[user]:
                                 found+=1
                     except:
@@ -64,8 +64,8 @@ if __name__=='__main__':
     
     avg_p=[]
     avg_rec=[]
-    sims=['jaccard']
-    for x in range(0,5):
+    sims=['jaccard']    #Similarity measures to be used
+    for x in range(0,5):    #Start 5 folds and evaluate iteratively
         print 'Starting fold {}'.format(x)
         eval(x,file_path=op,k=100,sim_mesrs=sims)
         
