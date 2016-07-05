@@ -1,2 +1,2 @@
 # CollaborativeFiltering
-Recommendations using collaborative filtering
+Recommendations using collaborative filtering (User-user)
